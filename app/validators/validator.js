@@ -77,7 +77,11 @@ class TokenValidator extends LinValidator{
             // 1. 可以为空值 2. 也可以不传值
             // 2. 传的话必须得满足一定的验证条件（可以为空/可以不为空  ）
             // 查询 分页 （典型的可以传也可以不传）
+
+            // new Rule('isOptional'),// 它还可以设置默认值
+
             new Rule('isOptional'),// 它还可以设置默认值
+
             new Rule('isLength','至少6个字符',{
                 min:6,
                 max:128

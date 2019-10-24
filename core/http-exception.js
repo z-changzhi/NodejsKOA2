@@ -25,8 +25,38 @@ class Success extends HttpException{
     }
 }
 
+class NotFound extends HttpException{
+    constructor(msg,errorCode){
+        super()
+        this.msg = msg || '资源未找到'
+        this.errorCode = errorCode ||0
+        this.code = 404
+    }
+}
+class AuthFailed extends HttpException{
+    constructor(msg,errorCode){
+        super()
+        this.msg = msg || '授权错误'
+        this.errorCode = errorCode ||10000
+        this.code = 401
+    }
+}
+// 禁止访问
+class Forbbiden extends HttpException{
+    constructor(msg,errorCode){
+        super()
+        this.msg = msg || '禁止访问'
+        this.error_code = errorCode ||10004
+        this.code = 403
+    }
+}
+
 module.exports = {
     HttpException,
     ParameterException,
+    Success,
+    NotFound,
+    AuthFailed,
+    Forbbiden,
     Success
 }
